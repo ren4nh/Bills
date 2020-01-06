@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 @SequenceGenerator(name = "seqBills", sequenceName = "SEQBILLS", allocationSize = 1)
 public class Bill implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "seqBills", strategy = GenerationType.AUTO)
     private Long id;
@@ -31,9 +33,9 @@ public class Bill implements Serializable {
     private BigDecimal correctedValue;
     private LocalDate paymentDate;
     private LocalDate dueDate;
-    private Long overdueDays = 0l;
+    private Long daysOverdue = 0l;
 
     public BillDTO toDTO() {
-        return new BillDTO(name, value, correctedValue, paymentDate, overdueDays);
+        return new BillDTO(name, value, correctedValue, paymentDate, daysOverdue);
     }
 }

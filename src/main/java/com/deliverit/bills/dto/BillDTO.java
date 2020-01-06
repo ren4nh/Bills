@@ -31,14 +31,14 @@ public class BillDTO {
     @NotNull(message = "Data de vencimento deve ser informada")
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate dueDate;
-    private Long overdueDays = 0l;
+    private Long daysOverdue = 0l;
 
-    public BillDTO(String name, BigDecimal value, BigDecimal correctedValue, LocalDate paymentDate, Long overdueDays) {
+    public BillDTO(String name, BigDecimal value, BigDecimal correctedValue, LocalDate paymentDate, Long daysOverdue) {
         this.name = name;
         this.value = value;
         this.correctedValue = correctedValue;
         this.paymentDate = paymentDate;
-        this.overdueDays = overdueDays;
+        this.daysOverdue = daysOverdue;
     }
 
     public BillDTO(String name, BigDecimal value, LocalDate paymentDate, LocalDate dueDate) {

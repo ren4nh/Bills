@@ -51,11 +51,10 @@ public class BillService {
             interest = bill.getValue().add(fine).multiply(interestRate).divide(new BigDecimal(100));
 
             bill.setCorrectedValue(bill.getValue().add(fine).add(interest).setScale(2, RoundingMode.HALF_EVEN));
-            bill.setOverdueDays(days);
+            bill.setDaysOverdue(days);
 
         } else {
             bill.setCorrectedValue(bill.getValue());
-            bill.setOverdueDays(0l);
         }
         return bill;
     }

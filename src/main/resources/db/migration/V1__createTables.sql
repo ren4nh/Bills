@@ -3,7 +3,7 @@ CREATE TABLE public.bills (
     correctedvalue numeric(19,2),
     duedate date,
     name character varying(255),
-    overduedays bigint,
+    daysoverdue bigint,
     paymentdate date,
     value numeric(19,2)
 );

@@ -28,7 +28,7 @@ public class BillController {
     @PostMapping
     public ResponseEntity<Object> saveBill(@Valid @RequestBody BillDTO billDTO) {
         Bill bill = new Bill();
-        BeanUtils.copyProperties(billDTO, bill);
+        BeanUtils.copyProperties(billDTO, bill, "daysOverdue");
         bill = billService.save(bill);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(bill.toDTO());
